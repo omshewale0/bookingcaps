@@ -25,82 +25,110 @@ export default function Home() {
     // 1️⃣ Date Button Logic
     const dateButtons = document.querySelectorAll(".date-btn");
     dateButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        dateButtons.forEach((btn) => btn.classList.remove("active"));
-        this.classList.add("active");
-      });
+      button.addEventListener("click", () => {
+  dateButtons.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+});
+
     });
 
-    // 2️⃣ Swap Button Logic
-    const swapButton = document.querySelector(".swap-button");
-    const fromInput = document.getElementById("from-input");
-    const toInput = document.getElementById("to-input");
+    // 2️⃣ Swap Button Logic (FIXED)
+const swapButton =
+  document.querySelector<HTMLButtonElement>(".swap-button");
 
-    if (swapButton && fromInput && toInput) {
-      swapButton.addEventListener("click", () => {
-        const temp = fromInput.value;
-        fromInput.value = toInput.value;
-        toInput.value = temp;
-      });
-    }
+const fromInput =
+  document.getElementById("from-input") as HTMLInputElement | null;
 
-    // 3️⃣ Women-only Toggle
-    const toggleSwitch = document.getElementById("women-booking-toggle");
-    if (toggleSwitch) {
-      toggleSwitch.addEventListener("change", function () {
-        console.log(
-          this.checked ? "Booking for women is ON" : "Booking for women is OFF"
-        );
-      });
-    }
+const toInput =
+  document.getElementById("to-input") as HTMLInputElement | null;
+
+if (swapButton && fromInput && toInput) {
+  swapButton.addEventListener("click", () => {
+    const temp = fromInput.value;
+    fromInput.value = toInput.value;
+    toInput.value = temp;
+  });
+}
+
+
+    // 3️⃣ Women-only Toggle (FIXED)
+const toggleSwitch =
+  document.getElementById("women-booking-toggle") as HTMLInputElement | null;
+
+if (toggleSwitch) {
+  toggleSwitch.addEventListener("change", () => {
+    console.log(
+      toggleSwitch.checked
+        ? "Booking for women is ON"
+        : "Booking for women is OFF"
+    );
+  });
+}
+
 
     // 4️⃣ Search Bus Button
-    const searchBtn = document.querySelector(".search-bus-btn");
-    if (searchBtn) {
-      searchBtn.addEventListener("click", () => {
-        const fromValue = fromInput?.value || "Not specified";
-        const toValue = toInput?.value || "Not specified";
-        const activeDateBtn = document.querySelector(".date-btn.active");
-        const dateValue = activeDateBtn
-          ? activeDateBtn.dataset.date
-          : "today";
+    // 🔍 Search Button Logic (FIXED)
+const searchBtn =
+  document.querySelector<HTMLButtonElement>(".search-bus-btn");
 
-        alert(
-          `Searching buses:\nFrom: ${fromValue}\nTo: ${toValue}\nDate: ${dateValue}`
-        );
-      });
-    }
+if (searchBtn && fromInput && toInput) {
+  searchBtn.addEventListener("click", () => {
+    const fromValue = fromInput.value || "Not specified";
+    const toValue = toInput.value || "Not specified";
 
-    // 5️⃣ Offer Tabs Filter
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const offerCards = document.querySelectorAll(".offer-card");
+    const activeDateBtn =
+      document.querySelector<HTMLButtonElement>(".date-btn.active");
 
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        tabButtons.forEach((btn) => btn.classList.remove("active"));
-        this.classList.add("active");
+    const dateValue = activeDateBtn?.dataset.date || "today";
 
-        const filter = this.getAttribute("data-filter");
+    alert(
+      `Searching buses:\nFrom: ${fromValue}\nTo: ${toValue}\nDate: ${dateValue}`
+    );
+  });
+}
 
-        offerCards.forEach((card) => {
-          card.style.display =
-            filter === "all" ||
-            card.getAttribute("data-category") === filter
-              ? "block"
-              : "none";
-        });
-      });
+
+   // 5️⃣ Offer Tabs Filter (FIXED)
+const tabButtons =
+  document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+
+const offerCards =
+  document.querySelectorAll<HTMLElement>(".offer-card");
+
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // remove active from all tabs
+    tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+    // add active to clicked tab
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    offerCards.forEach((card) => {
+      card.style.display =
+        filter === "all" || card.dataset.category === filter
+          ? "block"
+          : "none";
     });
+  });
+});
 
-    // 6️⃣ Navbar Active Links
-    const navItems = document.querySelectorAll(".nav-item");
-    navItems.forEach((item) => {
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        navItems.forEach((nav) => nav.classList.remove("active"));
-        this.classList.add("active");
-      });
-    });
+
+   // 6️⃣ Navbar Active Links (FIXED)
+const navItems =
+  document.querySelectorAll<HTMLElement>(".nav-item");
+
+navItems.forEach((item) => {
+  item.addEventListener("click", (e: Event) => {
+    e.preventDefault();
+
+    navItems.forEach((nav) => nav.classList.remove("active"));
+
+    item.classList.add("active");
+  });
+});
+
   }, []);
 
   if (loading) {
