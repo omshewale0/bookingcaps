@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     // Logo video logic
-    const video = document.getElementById("logoVid");
+    const video = document.getElementById("logoVid") as HTMLVideoElement | null;
     const hide = () => setLoading(false);
 
     if (video) {
