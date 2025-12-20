@@ -1,0 +1,222 @@
+
+        /* Google Font - Optional */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-yellow: #FFD700; /* तुमच्या इमेजमधील पिवळा रंग */
+            --background-grey: #F5F5F5; /* हलका राखाडी पार्श्वभूमी */
+            --card-white: #FFFFFF; /* कार्डचा पांढरा रंग */
+            --text-dark: #333333;
+            --text-grey: #666666;
+            --border-light: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-grey);
+            min-height: 100vh;
+        }
+
+        .account-container {
+            max-width: 500px; /* मोबाईल स्क्रीनसाठी कमाल रुंदी */
+            margin: 0 auto;
+            background-color: var(--background-grey);
+            position: relative; /* आवश्यक आहे */
+        }
+
+        /* --- Header Section (पिवळा भाग) --- */
+        .header-section {
+            background-color: var(--primary-yellow);
+            padding: 20px 20px 80px; /* प्रोफाईल फोटोसाठी खाली जागा */
+            position: relative;
+            /* खालच्या कडा गोल करण्यासाठी */
+            border-bottom-left-radius: 30px; 
+            border-bottom-right-radius: 30px;
+            z-index: 1; /* कार्डच्या मागे ठेवण्यासाठी */
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .header-top h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+
+        .header-top i {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* --- Profile Picture --- */
+        .profile-pic-container {
+            position: absolute;
+            top: 100px; /* पिवळ्या भागाच्या खाली मध्यभागी आणण्यासाठी */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10; /* सर्वात वर ठेवण्यासाठी */
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: var(--card-white);
+            border: 5px solid var(--card-white); /* प्रोफाईल फोटोभोवती पांढरी रिंग */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .edit-icon {
+            position: absolute;
+            bottom: 0px; /* तुमच्या इमेजप्रमाणे थोडं खाली */
+            right: 0px;
+            background-color: var(--primary-yellow);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .edit-icon i {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* --- Main Card Content --- */
+        .main-card {
+            padding: 80px 20px 20px; /* प्रोफाईल फोटोसाठी वर जागा */
+            position: relative;
+            z-index: 5; /* Header च्या वर आणि Profile Pic च्या खाली */
+        }
+
+        .info-section {
+            background-color: var(--card-white);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        input[type="text"], 
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            /* border: 1px solid #333333; */
+            border-radius: 10px;
+            font-size: 1rem;
+            color: var(--text-dark);
+            background-color: var(--background-grey); /* हलकी background */
+            transition: background-color 0.3s;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        /* input fields ला पांढऱ्या card मध्ये ठेवण्यासाठी background पांढरी ठेवली आहे */
+        .info-section input, .info-section select {
+            background-color: var(--card-white);
+            
+        }
+
+        /* तुमच्या इमेजमध्ये इनपुट फिल्डचा बॅकग्राउंड पांढरा आणि कडा गोल आहेत */
+        .info-section input, .select-wrapper {
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .info-section input {
+            padding: 10px 15px;
+            margin-bottom: 0;
+        }
+
+        /* --- Input with Icon (Location) --- */
+        .input-with-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+        }
+
+        .input-with-icon input {
+            flex-grow: 1;
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .input-with-icon .fas.fa-search {
+            padding: 0 15px;
+            color: var(--text-grey);
+            cursor: pointer;
+        }
+
+        /* --- Select Wrapper (Language & Education) --- */
+        .select-wrapper {
+            position: relative;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .select-wrapper select {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            background-color: var(--card-white);
+            cursor: pointer;
+        }
+
+        .select-wrapper .fas.fa-chevron-down {
+            padding: 0 15px;
+            color: var(--text-grey);
+            pointer-events: none; 
+        }
+
+        /* Disabled/Readonly state (इमेजमध्ये input fields readonly दिसतात) */
+        input[readonly], select[disabled] {
+            cursor: default;
+            caret-color: transparent; 
+        }
+    

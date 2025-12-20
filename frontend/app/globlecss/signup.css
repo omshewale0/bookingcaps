@@ -1,0 +1,153 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #e0e8f5);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.back-arrow {
+  color: #555;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header-text {
+  margin-bottom: 30px;
+}
+
+.header-text h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.header-text p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #8e2de2;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.get-started-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #8e2de2, #4a00e0);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(142, 45, 226, 0.4);
+  transition: background 0.3s ease;
+}
+
+.social-login {
+  margin-top: 30px;
+}
+
+.social-login p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons a i {
+  font-size: 24px;
+  color: black;
+}
+
+.social-icons img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-link {
+  margin-top: 20px;
+}
+
+.login-link p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-link a {
+  color: #8e2de2;
+  font-weight: 600;
+  text-decoration: none;
+}

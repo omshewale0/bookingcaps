@@ -1,0 +1,356 @@
+
+        /* Basic Reset and Modern Font */
+        body {
+            font-family: 'Inter', Arial, sans-serif; /* Modern, clean font */
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            -webkit-font-smoothing: antialiased; /* Smoother fonts */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            margin-top: 56px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            padding-bottom: 70px; /* Increased space for nav */
+        }
+
+        /* --- Transitions for smoother interactions --- */
+        button, .nav-item, .offer-card, .slider {
+            transition: all 0.3s ease;
+        }
+
+        /* --- Top Offers/Header --- */
+        .top-offers {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .offer-item {
+            text-align: center;
+            font-size: 13px;
+            cursor: pointer; /* Added for better UX */
+        }
+
+        .offer-item p:first-child {
+            font-weight: bold;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-bottom: 4px;
+        }
+
+        .redbus-offer p:first-child { background-color: #D32F2F; }
+        .redrail-offer p:first-child { background-color: #4CAF50; }
+        .hotel-offer p:first-child { background-color: #212121; }
+
+        .service-name {
+            color: #666;
+            font-size: 11px;
+        }
+
+        /* --- Bus Booking Section --- */
+        .bus-booking-section {
+            padding: 20px 15px;
+        }
+
+        .bus-booking-section h2 {
+            font-size: 1.5em; /* Slightly larger */
+            font-weight: 700; /* Bolder */
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .search-form {
+            background-color: #fff;
+            border-radius: 10px; /* Slightly more rounded */
+            border: 1px solid #e0e0e0; /* Subtle border */
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            
+        }
+
+        .input-group:last-of-type {
+            border-bottom: none;
+        }
+
+        .input-group i {
+            color: #888;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 1.1em;
+            padding: 5px 0;
+            color: black;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .swap-button {
+            position: absolute;
+            right: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px; /* Larger tap area */
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .swap-button:active { /* Feedback on click */
+            transform: scale(0.95);
+            background-color: #f0f0f0;
+        }
+
+        .swap-button i {
+            margin: 0;
+            color: #D32F2F; /* Brand color */
+            font-size: 1em;
+        }
+
+        /* Date Selector */
+        .date-selector {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-text {
+            flex-grow: 1;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .date-buttons {
+            display: flex;
+            margin-right: 15px;
+        }
+
+        .date-btn {
+            padding: 8px 15px;
+            margin-left: 8px;
+            border: 1px solid #D32F2F;
+            background-color: #fff;
+            color: #D32F2F;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .date-btn.active {
+            background-color: #D32F2F;
+            color: #fff;
+        }
+
+        /* Booking for Women Toggle */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 15px;
+            border-top: 10px solid #f5f5f5;
+            background-color: #fff;
+        }
+
+        .toggle-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-info i {
+            color: #D32F2F;
+            font-size: 1.3em;
+            margin-right: 12px;
+        }
+
+        .toggle-info p {
+            font-weight: 500;
+            margin: 0 10px 0 0;
+            color: #000;
+        }
+
+        .toggle-info a {
+            color: #D32F2F;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        /* Custom Switch/Toggle CSS */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 28px;
+        }
+
+        .switch input { display: none; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            border-radius: 28px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px; width: 22px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #D32F2F;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Search Button */
+        .search-bus-btn {
+            width: calc(100% - 30px);
+            margin: 20px 15px;
+            padding: 16px;
+            border: none;
+            background-color: #D32F2F;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-bus-btn:active { /* Feedback on click */
+            background-color: #b71c1c; /* Darker red */
+        }
+
+        .search-bus-btn i {
+            margin-right: 10px;
+        }
+
+        /* --- Offers Section --- */
+        .offers-section {
+            padding: 15px;
+        }
+
+        .offers-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .offers-header h3 {
+            margin: 0;
+            font-size: 1.4em; /* Bolder */
+            font-weight: 700;
+            color: black;
+        }
+
+        .offers-header a {
+            color: #D32F2F;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .offers-subtitle {
+            color: #666;
+            margin: 5px 0 20px;
+        }
+
+        .offer-tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 8px 18px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            background-color: #D32F2F;
+            color: #fff;
+            border-color: #D32F2F;
+        }
+
+        /* Offer Cards */
+        .offer-cards-container {
+            display: flex;
+            overflow-x: scroll;
+            padding-bottom: 10px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .offer-cards-container::-webkit-scrollbar { display: none; }
+
+        .offer-card {
+            min-width: 260px;
+            margin-right: 15px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            background-color: #fff;
+            position: relative;
+        }
+
+        .bus-tag, .train-tag, .hotel-tag {
+            position: absolute;
+            top: 0; left: 0;
+            color: white;
+            padding: 3px 10px;
+            font-size: 11px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            font-weight: bold;
+        }
+        .bus-tag { background-color: #212121; }
+        .train-tag { background-color: #4CAF50; }
+        .hotel-tag { background-color: #D32F2F; }
+
+
+        .offer-card h4 {
+            margin: 15px 0 5px 0;
+            font-size: 1.1em;
+        }
+
+        .offer-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        
+    

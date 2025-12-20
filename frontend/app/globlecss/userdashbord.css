@@ -1,0 +1,174 @@
+
+        
+        /* 1. Reset and Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light grey background */
+            display: flex;
+            justify-content: center; 
+            min-height: 100vh;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 450px; /* Mobile-like width */
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* 2. Header (Yellow Section) */
+        .profile-header {
+            background-color: #ffda47; /* Yellow color from image */
+            color: #333; 
+            height: 150px;  
+            padding: 20px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-arrow {
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 3. Profile Card (White Card) */
+        .profile-card {
+            background-color: white;
+            border-radius: 15px;
+            /* Yellow भागावर कार्ड ओव्हरलॅप करण्यासाठी */
+            margin: -40px 15px 15px 15px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding-top: 0;
+            text-align: center;
+        }
+
+        .user-info-section {
+            padding: 20px 20px 10px 20px;
+        }
+
+        /* Profile Picture Styling */
+        .profile-picture-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ffda47; /* Yellow ring */
+            overflow: hidden;
+            /* फोटो वर ओव्हरलॅप करण्यासाठी */
+            margin: -60px auto 15px auto; 
+            background-color: #eee; 
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+           background-image: url('/placeholder-image.jpg');
+            background-size: cover;
+            /* Placeholder साठी गडद रंग, कारण इमेज URL उपलब्ध नाही */
+            background-color: #222; 
+        }
+
+        .user-name {
+            margin: 5px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-detail {
+            margin: 2px 0;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* 4. Menu List */
+        .profile-menu-list {
+            list-style: none;
+            padding: 10px 20px 20px 20px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .profile-menu-list li {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            color: #555;
+            font-size: 16px;
+            border-bottom: 1px solid #eee; 
+            cursor: pointer;
+        }
+        
+        .profile-menu-list li:last-child {
+            border-bottom: none;
+        }
+
+        .menu-icon {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #777;
+        }
+
+        /* 5. About/Settings Section */
+        .settings-section {
+            background-color: white;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-list {
+            list-style: none;
+            padding: 15px 20px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .settings-list li {
+            padding: 10px 0;
+            color: #555;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .section-heading {
+            font-weight: bold;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: #333;
+        }
+
+        /* 6. Responsiveness (Desktop View) */
+        @media (min-width: 451px) {
+            .profile-container {
+                margin: 40px auto; 
+                border-radius: 15px;
+            }
+
+            .profile-header {
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+
+            .back-arrow {
+                display: none; /* डेस्कटॉपवर बाण लपवा */
+            }
+
+            .header-title {
+                text-align: center;
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    

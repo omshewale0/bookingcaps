@@ -1,0 +1,227 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6; /* Light background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+          
+            box-sizing: border-box;
+        }
+
+        /* --- Container & View Structure (Mobile Friendly) --- */
+        .container {
+            width: 100%;
+            max-width: 400px; /* Max width for mobile-friendly design */
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            /* Key for smooth transition within one container */
+            position: relative; 
+            overflow: hidden;
+            height: 400px; /* Ensure container has a height during transition */
+        }
+
+        /* Base style for views */
+        .view {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            position: absolute; 
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 30px; /* Match container padding */
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateX(100%); /* Start off-screen to the right */
+            pointer-events: none; /* Disable interaction when hidden */
+        }
+
+        /* Initial/Active view style */
+        .view.active {
+            position: relative; /* Bring active view back to flow */
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto; /* Enable interaction */
+        }
+
+        /* Adjust the positioning for views inside the container */
+        #mobile-login-view, #otp-view {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transform: translateX(100%);
+        }
+        
+        /* Specific positioning for the two views */
+        #mobile-login-view.active {
+            position: relative; /* Take up space */
+            transform: translateX(0);
+        }
+
+        #otp-view {
+            transform: translateX(100%);
+            left: 0;
+            opacity: 0;
+        }
+
+        /* When mobile-login-view is active, set its relative position and hide otp view */
+        #mobile-login-view.active {
+            position: relative;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* When otp-view is active, set its relative position and hide mobile view */
+        #otp-view.active {
+            position: absolute; /* Needs to be absolute to overlay correctly */
+            transform: translateX(0);
+            opacity: 1;
+            /* Adjust padding/position to match the mobile-login-view's final position */
+        }
+
+        /* Fix for initial load/active state */
+        .view {
+            /* Reset absolute position for correct layout */
+            position: relative;
+            transform: translateX(0);
+            opacity: 0;
+            display: none; /* Hide initially */
+        }
+
+        .view.active {
+            display: block; /* Show active view */
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* The transition for the view swap */
+        .view.active {
+            position: relative;
+        }
+        .view:not(.active) {
+            position: absolute;
+            transform: translateX(100%);
+        }
+        /* End of Transition Fixes */
+
+        /* --- Typography --- */
+        .title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* --- Form Elements --- */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            padding: 0 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            border-color: #007bff; /* Highlight on focus */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+
+        .country-code {
+            color: #555;
+            font-weight: bold;
+            margin-right: 10px;
+            padding-right: 10px;
+            border-right: 1px solid #ddd;
+        }
+
+        .input-field {
+            border: none;
+            padding: 15px 0;
+            font-size: 1.1em;
+            width: 100%;
+            background: transparent;
+            outline: none;
+        }
+
+        /* --- OTP Input Specific --- */
+        .otp-input-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .otp-input-field {
+            width: 20%; /* Distribute width evenly */
+            height: 60px;
+            font-size: 1.5em;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        .otp-input-field:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s;
+        }
+
+        .btn.primary {
+             background: linear-gradient(90deg, #8e2de2, #4a00e0);
+            color: white;
+        }
+
+        .btn.primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn.primary:active {
+            transform: scale(0.99); /* Smooth press effect */
+        }
+
+        /* --- Resend Link --- */
+        .resend-text {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        #resend-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #resend-link:hover {
+            text-decoration: underline;
+        }
