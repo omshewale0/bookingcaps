@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moltbot-style Local Agent MVP</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Moltbot-style Local Agent MVP</h1>
+      <p>Local AI agent with phone tools, approvals, and chat.</p>
+    </header>
+
+    <section id="auth-section">
+      <h2>Sign In / Register</h2>
+      <div class="grid">
+        <div>
+          <h3>Create Account</h3>
+          <input id="register-email" type="email" placeholder="Email" />
+          <input id="register-password" type="password" placeholder="Password" />
+          <button id="register-btn">Register</button>
+        </div>
+        <div>
+          <h3>Login</h3>
+          <input id="login-email" type="email" placeholder="Email" />
+          <input id="login-password" type="password" placeholder="Password" />
+          <button id="login-btn">Login</button>
+        </div>
+      </div>
+      <p id="auth-status" class="status"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="toolbar">
+        <span id="user-status"></span>
+        <button id="logout-btn">Logout</button>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>LLM Profiles</h2>
+          <div class="form-group">
+            <input id="profile-name" placeholder="Profile name" />
+            <select id="profile-provider">
+              <option value="openai">OpenAI</option>
+              <option value="openai_compatible">OpenAI-Compatible</option>
+            </select>
+            <input id="profile-base-url" placeholder="Base URL (compatible only)" />
+            <input id="profile-model" placeholder="Model (e.g. gpt-4o-mini)" />
+            <input id="profile-api-key" placeholder="API key" />
+            <label><input id="profile-active" type="checkbox" /> Set active</label>
+            <button id="profile-save">Save Profile</button>
+          </div>
+          <ul id="profile-list"></ul>
+        </div>
+
+        <div class="card">
+          <h2>Pair Device</h2>
+          <button id="pair-device">Add Device</button>
+          <div id="pairing-details"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Pending Approvals</h2>
+          <button id="refresh-approvals">Refresh</button>
+          <ul id="approvals-list"></ul>
+        </div>
+
+        <div class="card">
+          <h2>Chat</h2>
+          <div id="chat-window"></div>
+          <div class="chat-input">
+            <input id="chat-message" placeholder="Type your message" />
+            <button id="send-chat">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
